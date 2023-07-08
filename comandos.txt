@@ -48,3 +48,5 @@ nest g service state
 
 g services city 
 g service city 
+
+npm i --save class-validator class-transformer
