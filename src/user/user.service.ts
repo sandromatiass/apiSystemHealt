@@ -55,4 +55,17 @@ export class UserService {
     }
     return user;
   }
+
+  async findUserByCnpj(cnpj: string): Promise<UserEntity>{
+    const user = await this.userRepository.findOne({
+      where:{
+        cnpj,
+      }
+    });
+
+    if (!user){
+      throw new NotFoundException(`Cnpj: ${cnpj} Not Found`);
+    }
+    return user;
+  }
 }

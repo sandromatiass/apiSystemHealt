@@ -53,3 +53,11 @@ npm i --save class-validator class-transformer
 
 nest g service address 
 nest g controller address 
+
+authetication user
+npm install --save @nestjs/passport passport passport-local
+npm install --save-dev @types/passport-local
+
+
+ nest g module auth
+  nest g service auth
