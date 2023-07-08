@@ -1,4 +1,12 @@
-import { Column ,Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { AddressEntity } from "src/address/entities/address.entity";
+import { 
+  Column,
+  Entity, 
+  PrimaryGeneratedColumn, 
+  CreateDateColumn, 
+  UpdateDateColumn, 
+  OneToMany
+} from "typeorm"
 
 
 @Entity({name: "user"})
@@ -6,7 +14,7 @@ export class UserEntity {
   @PrimaryGeneratedColumn("rowid")
   id: number;
 
-  @Column({name: "cnpj", nullable: false})
+  @Column({name: "cnpj", nullable: true})
   cnpj: string;
 
   @Column({name: "cpf", nullable: false})
@@ -18,7 +26,7 @@ export class UserEntity {
   @Column({name: "phone", nullable: false})
   phone: string;
 
-  @Column({name: "matricula", nullable: false})
+  @Column({name: "matricula", nullable: true})
   matricula: string;
 
   @Column({name: "name", nullable: false})
@@ -35,6 +43,9 @@ export class UserEntity {
 
   @UpdateDateColumn({ name: "updated_at"})
   updatedAt: Date;
+
+  @OneToMany(() => AddressEntity, (address) => address.user)
+  addresses?: AddressEntity[];
 }
 
 
