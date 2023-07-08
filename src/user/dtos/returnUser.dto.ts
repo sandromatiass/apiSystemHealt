@@ -9,7 +9,7 @@ export class ReturnUserDto {
   phone: string;
   matricula: string;
   name: string;
-  adresses?: ReturnAddressDto[];
+  addresses?: ReturnAddressDto[];
   
   constructor(useEntity: UserEntity){
    this.id = useEntity.id;
@@ -20,7 +20,7 @@ export class ReturnUserDto {
    this.matricula = useEntity.matricula;
    this.name = useEntity.name;
 
-   this.adresses = useEntity.addresses 
+   this.addresses = useEntity.addresses 
    ? useEntity.addresses.map((address) => new ReturnAddressDto(address) ) 
    : undefined;
   }
