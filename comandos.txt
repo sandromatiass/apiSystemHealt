@@ -20,6 +20,7 @@ typeORM
 
 npm install pg @nestjs/typeorm
 
+//tem que ser tudo na sequencia certa
 npx typeorm migration:create ./src/migration/create_table_user
 
 npx typeorm migration:create ./src/migration/create_table_city
@@ -27,3 +28,19 @@ npx typeorm migration:create ./src/migration/create_table_city
 npx typeorm migration:create ./src/migration/create_table_address
 
 npx typeorm migration:create ./src/migration/create_table_state
+
+//outro dia
+
+npx typeorm migration:create ./src/migration/alter-table-state
+//populando dados
+npx typeorm migration:create ./src/migration/insert-int-state 
+
+npx typeorm migration:create ./src/migration/insert-in-city   
+
+nest g module state
+nest g module city
+nest g module address
+
+
+nest g controller state
+nest g service state  
