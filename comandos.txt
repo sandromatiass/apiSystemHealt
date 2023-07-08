@@ -50,3 +50,6 @@ g services city
 g service city 
 
 npm i --save class-validator class-transformer
+
+nest g service address 
+nest g controller address 
