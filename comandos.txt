@@ -44,3 +44,7 @@ nest g module address
 
 nest g controller state
 nest g service state  
+
+
+g services city 
+g service city 
