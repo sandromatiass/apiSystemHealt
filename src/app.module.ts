@@ -23,9 +23,13 @@ import { JwtModule } from '@nestjs/jwt';
       password: process.env.DB_PASSWORD,
       port: Number(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
-      entities: [`${__dirname}/**/*.entity{.js, .ts}`],
-      migrations: [`${__dirname}/migration/{.ts,*.js}`],
+      entities: [`${__dirname}/**/*.entity{.js,.ts}`],
+      migrations: [`${__dirname}/migration/*{.js,.ts}`],
       migrationsRun: true,
+    }),
+    JwtModule.register({
+      secret: process.env.JWT_SECRET,
+      signOptions: { expiresIn: '1d' },
     }),
     UserModule,
     StateModule,
@@ -33,14 +37,13 @@ import { JwtModule } from '@nestjs/jwt';
     AddressModule,
     CacheModule,
     AuthModule,
-    JwtModule,
   ],
   controllers: [],
   providers: [
     {
-    provide: APP_GUARD,
-    useClass: RolesGuard,
-  },
-],
+      provide: APP_GUARD,
+      useClass: RolesGuard,
+    },
+  ],
 })
 export class AppModule {}
